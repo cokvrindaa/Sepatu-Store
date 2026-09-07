@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Shoe extends Model
 {
@@ -18,9 +19,10 @@ class Shoe extends Model
         'thubnail',
         'about',
         'price',
+        'stock',
         'category_id',
         'brand_id',
-        'is_popular'
+        'is_popular',
     ];
 
     // digunakan untuk pembuatan slug
@@ -33,24 +35,26 @@ class Shoe extends Model
     }
 
     // satu sepatu memiliki satu brand, satu categori, satu poto satu size
-    
-    public function brand(): BelongsTo 
+
+    public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class, 'brand_id');
     }
-    
+
     // many to one, mengabungkan beberapa sepatu menjadi 1 kategori
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class , 'category_id');    
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function photos() :BelongsTo {
-        return $this->belongsTo(ShoePhoto::class);
+    public function photos(): HasMany
+    {
+        return $this->hasMany(ShoePhoto::class);
     }
 
-    public function sizes():BelongsTo {
-        return $this->belongsTo(ShoeSize::class);
+    public function sizes(): HasMany
+    {
+        return $this->hasMany(ShoeSize::class);
     }
 
 }
