@@ -11,6 +11,10 @@ class ProductTranscations extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $attributes = [
+        'discount_amount' => 0,
+    ];
+
     protected $fillable = [
         'name',
         'phone',
