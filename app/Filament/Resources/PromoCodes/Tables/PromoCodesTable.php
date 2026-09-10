@@ -1,33 +1,26 @@
 <?php
 
-namespace App\Filament\Resources\ProductTranscations\Tables;
+namespace App\Filament\Resources\PromoCodes\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
-use Filament\Actions\ViewAction;
-use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-class ProductTranscationsTable
+class PromoCodesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('grand_total_amount')
+                TextColumn::make('discount_amount')
                     ->numeric()
                     ->sortable(),
-                IconColumn::make('is_paid')
-                    ->boolean(),
-                TextColumn::make('shoe.name')
+                TextColumn::make('code')
                     ->searchable(),
                 TextColumn::make('deleted_at')
                     ->dateTime()
@@ -46,8 +39,6 @@ class ProductTranscationsTable
                 TrashedFilter::make(),
             ])
             ->recordActions([
-                ViewAction::make()
-                    ->modalWidth('full'),
                 EditAction::make(),
             ])
             ->toolbarActions([
