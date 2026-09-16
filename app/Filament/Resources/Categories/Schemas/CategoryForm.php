@@ -17,6 +17,8 @@ class CategoryForm
                     ->maxLength(255),
                 FileUpload::make('icon')
                     ->image()
+                    ->disk('public')
+                    ->directory('categories')
                     ->required(),
             ]);
     }

@@ -24,7 +24,12 @@ class ShoeForm
                         ->required()
                         ->numeric()
                         ->prefix('IDR'),
-                    TextInput::make('thubnail')
+                    FileUpload::make('thumbnail')
+                        ->image()
+                        ->disk('public')
+                        ->directory('shoes/thumbnails')
+                        ->required(),
+                    TextInput::make('description')
                         ->required(),
 
                     // Repeater digunakan untuk menambahkan data lebih dari satu terutama dari segi UI
@@ -32,6 +37,8 @@ class ShoeForm
                         ->relationship('photos')
                         ->schema([
                             FileUpload::make('photo')
+                                ->disk('public')
+                                ->directory('shoes')
                                 ->required(),
                         ]),
                     Repeater::make('sizes')

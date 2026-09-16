@@ -20,7 +20,7 @@ class ShoesTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
-                TextColumn::make('thubnail')
+                TextColumn::make('description')
                     ->searchable(),
                 TextColumn::make('category.name')
                     ->searchable(),

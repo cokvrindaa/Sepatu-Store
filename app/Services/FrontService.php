@@ -29,6 +29,7 @@ class FrontService
         $popularShoes = $this->shoeRepository->getPopularShoes(4);
         $newShoes = $this->shoeRepository->getAllNewShoes();
 
+        // data ini akan di bawah ke front controller
         return compact('categories', 'popularShoes', 'newShoes');
     }
 }
