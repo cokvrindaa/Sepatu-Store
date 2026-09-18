@@ -1,7 +1,6 @@
 const swiper = new Swiper('.swiper', {
-    // Optional parameters
     slidesOffsetAfter: 16,
-    slidesOffsetBefore: 16,
+    slidesOffsetBefore: 0,
     slidesPerView: "auto",
     spaceBetween: 16
 });

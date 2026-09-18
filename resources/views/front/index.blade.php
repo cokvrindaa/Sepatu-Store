@@ -208,26 +208,30 @@
                     </a>
                 </div>
                 <div class="grid md:grid-cols-3 gap-4 md:gap-6">
-                    <a href="details.html" class="group">
-                        <div class="flex items-center rounded-3xl p-4 gap-4 bg-white transition-all duration-300 border border-transparent shadow-sm group-hover:shadow-lg group-hover:border-[#FFC700] group-hover:-translate-y-1">
-                            <div class="w-24 h-24 flex shrink-0 rounded-2xl bg-[#F5F5F0] overflow-hidden">
-                                <img src="assets/images/thumbnails/photo5.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Hello Kity Sandal Lite">
-                            </div>
-                            <div class="flex w-full items-center justify-between gap-3">
-                                <div class="flex flex-col gap-1">
-                                    <h3 class="font-bold text-base   transition-colors">Hello Kity Sandal Lite</h3>
-                                    <p class="text-xs text-[#878785]">Casual Sandal</p>
-                                    <p class="font-extrabold text-sm text-[#090917] mt-1">Rp 450.000</p>
+                    @forelse ( $newShoes as $itemNewShoes )
+                        <a href="{{ route('front.details', $itemNewShoes->slug) }}" class="group">
+                            <div class="flex items-center rounded-3xl p-4 gap-4 bg-white transition-all duration-300 border border-transparent shadow-sm group-hover:shadow-lg group-hover:border-[#FFC700] group-hover:-translate-y-1">
+                                <div class="w-24 h-24 flex shrink-0 rounded-2xl bg-[#F5F5F0] overflow-hidden">
+                                    <img src="{{ Storage::url($itemNewShoes->thumbnail) }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Hello Kity Sandal Lite">
                                 </div>
-                                <div class="flex flex-col gap-1 items-end shrink-0">
-                                    <div class="flex">
-                                        <img src="assets/images/icons/Star 1.svg" class="w-4 h-4" alt="star">
+                                <div class="flex w-full items-center justify-between gap-3">
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="font-bold text-base   transition-colors">{{ $itemNewShoes->name }}</h3>
+                                        <p class="text-xs text-[#878785]">{{ $itemNewShoes->description }}</p>
+                                        <p class="font-extrabold text-sm text-[#090917] mt-1">Rp. {{ number_format($itemNewShoes->price) }}</p>
                                     </div>
-                                    <p class="font-semibold text-xs">4.5</p>
+                                    <div class="flex flex-col gap-1 items-end shrink-0">
+                                        <div class="flex">
+                                            <img src="assets/images/icons/Star 1.svg" class="w-4 h-4" alt="star">
+                                        </div>
+                                        <p class="font-semibold text-xs">4.5</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    @empty
+                        <p>Data kosong</p>
+                    @endforelse
                 </div>
             </section>
         </main>
@@ -293,6 +297,9 @@
         </nav>
 
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="js/index.js"></script>
+        <script src="{{ asset('js/index.js') }}"></script>
+
+
+
     </body>
 </html>

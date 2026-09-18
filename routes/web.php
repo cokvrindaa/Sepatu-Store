@@ -12,7 +12,7 @@ Route::get('/browse/{category:slug}', [FrontController::class, 'category'])->nam
 Route::get('/details/{shoe:slug}', [FrontController::class, 'details'])->name('front.details');
 
 // GET =  mengambil data , POST = request menyimpan/mengirim data
-Route::post('/order/begin/{shoe:slug}', [OrderController::class, 'saveOrder'])->name('fornt.save_order');
+Route::match(['get', 'post'], '/order/begin/{shoe:slug}', [OrderController::class, 'saveOrder'])->name('front.save_order');
 
 Route::get('/order/booking', [OrderController::class, 'booking'])->name('front.booking');
 

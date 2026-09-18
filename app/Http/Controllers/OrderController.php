@@ -19,19 +19,21 @@ class OrderController extends Controller
 
     // StoreOrderRequest kita harus buat dengan php artisan make:request StoreOrderRequest
     public function saveOrder(StoreOrderRequest $request, Shoe $shoe) {
+
         // melakukan validasi 
         $validated = $request->validated();
         
         // Penyimpanan ke service lalu di simpan di repository yang berkomunikasi ke model dan db 
         $validated['shoe_id'] = $shoe->id;
         $this->orderService->beginOrder($validated);
-
-        return redirect()->route('front.booking', $shoe->slug);
+        
+        return redirect()->route('front.booking');
     }
 
     // mengampilkan data data customer dan detail booking data
     public function booking() {
         $data = $this->orderService->getOrderDetails();
+        dd($data);
         return view('order.order' , $data);
     }
 
