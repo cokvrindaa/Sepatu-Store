@@ -33,7 +33,6 @@ class OrderController extends Controller
     // mengampilkan data data customer dan detail booking data
     public function booking() {
         $data = $this->orderService->getOrderDetails();
-        dd($data);
         return view('order.order' , $data);
     }
 
