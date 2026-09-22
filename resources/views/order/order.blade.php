@@ -32,6 +32,6 @@
   {{-- membawa data shoe dan orderData dari kontroller ke order-form --}}
   @livewire('order-form', ['shoe' => $shoe, 'orderData' => $orderData])
 </main>
-<script src="{{ asset('js/booking.js') }}"></script>
+{{-- <script src="{{ asset('js/booking.js') }}"></script> --}}
 </body>
 </html>
