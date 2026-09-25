@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCustomerDataRequest;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\StorePaymentRequest;
+use App\Models\ProductTranscations;
 use App\Models\Shoe;
 use App\Services\OrderService;
 use Illuminate\Http\Request;
@@ -65,10 +66,14 @@ class OrderController extends Controller
         
         // jika berhasil arahkan ke order finished
         if($productTranscationId) {
-            return redirect()->route('fornt.order_finished', $productTranscationId);
+            return redirect()->route('front.order_finished', $productTranscationId);
         }
 
         return redirect()->route('front.index')->withErrors(['error' => 'Pembayaran gagal, bisa coba lagi yah']);
     }
     
+    public function orderFinished(ProductTranscations $productTransaction){
+        dd($productTransaction);
+    }
+
 }

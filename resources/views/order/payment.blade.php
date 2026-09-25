@@ -30,7 +30,8 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 md:px-8 mt-6 md:mt-8 flex justify-center">
-        <div class="w-full max-w-2xl space-y-6">
+        <form action="{{ route('front.payment_comfirm') }}" method="POST" enctype="multipart/form-data" class="w-full max-w-2xl space-y-6">
+            @csrf
             <!-- Your Order - Accordion -->
             <section class="accordion flex flex-col rounded-3xl p-5 gap-5 bg-white shadow border overflow-hidden transition-all duration-300 has-[:checked]:!h-[66px]">
                 <label class="group flex items-center justify-between cursor-pointer">
@@ -94,14 +95,14 @@
                 <div class="flex items-center gap-4 border-b border-gray-200 pb-4">
                     <img src="{{ asset('assets/images/logos/bca-bank-central-asia 1.svg') }}" class="w-16 object-contain" alt="BCA">
                     <div>
-                        <p class="font-bold flex items-center">JuaraTiket Indonesia <img src="{{ asset('assets/images/icons/verify.svg') }}" class="ml-1 w-4" alt="verify"></p>
+                        <p class="font-bold flex items-center">HAHA Indonesia <img src="{{ asset('assets/images/icons/verify.svg') }}" class="ml-1 w-4" alt="verify"></p>
                         <p class="text-sm">8008129839</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-4 border-b border-gray-200 pb-4">
                     <img src="{{ asset('assets/images/logos/bank-mandiri 1.svg') }}" class="w-16 object-contain" alt="Mandiri">
                     <div>
-                        <p class="font-bold flex items-center">JuaraTiket Indonesia <img src="{{ asset('assets/images/icons/verify.svg') }}" class="ml-1 w-4" alt="verify"></p>
+                        <p class="font-bold flex items-center">HAHA Indonesia <img src="{{ asset('assets/images/icons/verify.svg') }}" class="ml-1 w-4" alt="verify"></p>
                         <p class="text-sm">12379834983281</p>
                     </div>
                 </div>
@@ -130,7 +131,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </form>
     </main>
 
     <script src="{{ asset('js/accordion.js') }}"></script>

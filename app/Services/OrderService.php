@@ -107,14 +107,15 @@ class OrderService
           $validated['booking_trx_id'] = ProductTranscations::genereateUniqeTrxId();
           $validated['city'] = $orderData['city'];
           $validated['post_code'] = $orderData['post_code'];
-          $validated['proof'] = $orderData['proof'];
           $validated['address'] = $orderData['address'];
           $validated['quantity'] = $orderData['quantity'];
           $validated['sub_total_amount'] = $orderData['sub_total_amount'];
           $validated['grand_total_amount'] = $orderData['grand_total_amount'];
-          $validated['discount_amount'] = $orderData['discount_amount'];
+          $validated['discount_amount'] = $orderData['discount_amount'] ?? 0;
           $validated['is_paid'] = false;
-          $validated['promo_code_id'] = $orderData['promo_code_id'];
+          $validated['shoe_id'] = $orderData['shoe_id'];
+          $validated['shoe_size'] = $orderData['shoe_size'];
+          $validated['promo_code_id'] = $orderData['promo_code_id'] ?? null;
 
           $newTranscation = $this->orderRepository->createTranscation($validated);
           
