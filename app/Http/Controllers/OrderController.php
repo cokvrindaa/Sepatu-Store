@@ -55,7 +55,7 @@ class OrderController extends Controller
     // menampilkan data payment
     public function payment() {
         $data = $this->orderService->getOrderDetails();
-        dd($data);
+        // dd($data);
         return view('order.payment', $data);
     }
 

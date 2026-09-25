@@ -17,6 +17,9 @@ class BrandForm
                     ->maxLength(255)
                     ->required(),
                 FileUpload::make('logo')
+                    ->image()
+                    ->disk('public')
+                    ->directory('brands')
                     ->required(),
             ]);
     }
