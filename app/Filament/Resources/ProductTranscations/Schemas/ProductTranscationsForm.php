@@ -19,6 +19,7 @@ class ProductTranscationsForm
     public static function configure(Schema $schema): Schema
     {
         return $schema
+            ->columns(1)
             ->components([
                 Wizard::make([
                     // Step untuk 1 , 2 , 3 dst
@@ -170,10 +171,13 @@ class ProductTranscationsForm
                             ->required(),
                         FileUpload::make('proof')
                             ->image()
+                            ->disk('public')
+                            ->directory('proofs')
                             ->required(),
 
                     ]),
-                ]),
+                ])
+                    ->columnSpanFull(),
             ]);
     }
 }

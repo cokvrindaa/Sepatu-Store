@@ -22,6 +22,9 @@ class ProductTranscationsTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
+                ImageColumn::make('proof')
+                    ->disk('public')
+                    ->square(),
                 TextColumn::make('grand_total_amount')
                     ->numeric()
                     ->sortable(),

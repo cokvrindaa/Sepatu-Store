@@ -114,7 +114,7 @@ class OrderService
           $validated['discount_amount'] = $orderData['discount_amount'] ?? 0;
           $validated['is_paid'] = false;
           $validated['shoe_id'] = $orderData['shoe_id'];
-          $validated['shoe_size'] = $orderData['shoe_size'];
+          $validated['shoe_size'] = $orderData['size_id'];
           $validated['promo_code_id'] = $orderData['promo_code_id'] ?? null;
 
           $newTranscation = $this->orderRepository->createTranscation($validated);
