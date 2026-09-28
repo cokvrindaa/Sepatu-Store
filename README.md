@@ -4,6 +4,14 @@ Platform toko sepatu online premium berbasis **Laravel 13** & **Livewire 3**. Us
 
 > Dibuat mengikuti tutorial dari **BWA (Build With Angga)**.
 
+## 📷 Tangkapan Layar (Screenshots)
+
+### Frontend Overview
+![Frontend](frontend.png)
+
+### Filament Admin Dashboard
+![Filament Admin](Filament.png)
+
 ---
 
 ## ✨ Fitur
