@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
 
+Route::get('/search', [FrontController::class, 'search'])->name('front.search');
+
 // contoh url ketika menggunakan slug : localhost/browse/sport
 Route::get('/browse/{category:slug}', [FrontController::class, 'category'])->name('front.category');
 

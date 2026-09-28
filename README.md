@@ -1,58 +1,213 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 👟 ShoesStore
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Platform toko sepatu online premium berbasis **Laravel 13** & **Livewire 3**. User bisa browse sepatu berdasarkan kategori & brand, order sepatu, upload bukti pembayaran, dan cek status pesanan via Booking ID.
 
-## About Laravel
-thanks to bwa (Build With Angga !)
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+> Dibuat mengikuti tutorial dari **BWA (Build With Angga)**.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ✨ Fitur
 
-## Learning Laravel
+### 🛍️ User / Customer
+- **Browse sepatu** — lihat semua sepatu di beranda
+- **Browse by kategori** — filter sepatu berdasarkan kategori (Lifestyle, Running, Gym, Basketball)
+- **Browse by brand** — lihat sepatu dari brand tertentu
+- **Detail sepatu** — lihat foto, harga, deskripsi, brand, ukuran, dan pilih size
+- **Order sepatu** — isi nama, email, phone, alamat, jumlah, dan kode promo
+- **Upload bukti pembayaran** — upload foto bukti transfer
+- **Lihat order selesai** — halaman konfirmasi setelah order
+- **Cek pesanan (My Orders)** — cek status pesanan via Booking ID + nomor HP
+- **Search sepatu** — cari sepatu berdasarkan nama
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 🧱 Tech Stack & Pola
+- **Laravel 13.30.1** + **PHP 8.5.1**
+- **Livewire 3** untuk form quantity & promo yang reaktif
+- **Repository Pattern + Service Pattern + Dependency Injection**
+- **Form Request Validation** (`StoreCustomerDataRequest`, `StorePaymentRequest`, `StoreCheckBookingRequest`)
+- **Soft Deletes** di hampir semua tabel
+- **Session-based cart/order** (`saveToSession`)
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## 📦 Instalasi
 
-## Agentic Development
+### Prasyarat
+Pastikan sudah punya:
+- PHP ≥ 8.2
+- Composer
+- Node.js & NPM
+- MySQL / MariaDB
+- Git
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Langkah Instalasi
 
+**1. Clone repository**
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone <url-repo>
+cd sepatustore
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+**2. Install dependency PHP**
+```bash
+composer install
+```
 
-## Contributing
+**3. Install dependency JavaScript**
+```bash
+npm install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**4. Copy file `.env`**
+```bash
+cp .env.example .env
+```
 
-## Code of Conduct
+**5. Generate APP_KEY**
+```bash
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**6. Konfigurasi database** — buka `.env`, sesuaikan:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=sepatustore
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Security Vulnerabilities
+**7. Buat database baru**
+```sql
+CREATE DATABASE sepatustore;
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**8. Jalankan migrasi**
+```bash
+php artisan migrate
+```
 
-## License
+**9. Buat storage symlink** (supaya file di `storage/app/public` bisa diakses dari web)
+```bash
+php artisan storage:link
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**10. Build asset frontend**
+```bash
+npm run build
+```
+
+---
+
+## 🚀 Cara Menjalankan Project
+
+### Development (2 terminal)
+
+**Terminal 1 — Laravel server:**
+```bash
+php artisan serve
+```
+Buka `http://127.0.0.1:8000`
+
+**Terminal 2 — Vite (live reload asset):**
+```bash
+npm run dev
+```
+
+### Production
+```bash
+npm run build
+php artisan serve
+```
+
+---
+
+## 🌱 Seeder (Data Dummy)
+
+Seeder sudah menyiapkan:
+- **4 Kategori:** Lifestyle, Running, Gym, Basketball
+- **4 Brand:** Nike, Adidas, Jordan, Puma
+- **8 Sepatu** lengkap dengan foto & ukuran (38–45)
+
+### Cara menjalankan seeder:
+
+**Jalankan semua seeder (termasuk default User):**
+```bash
+php artisan db:seed
+```
+
+**Jalankan hanya ShoeSeeder:**
+```bash
+php artisan db:seed --class=ShoeSeeder
+```
+
+**Reset database + jalankan ulang semua seeder:**
+```bash
+php artisan migrate:fresh --seed
+```
+
+---
+
+## 🔗 Storage Link
+
+`storage:link` membuat symlink dari `public/storage` → `storage/app/public`. Ini penting supaya foto sepatu dan bukti pembayaran user bisa ditampilkan di browser.
+
+```bash
+php artisan storage:link
+```
+
+Kalau error "symlink already exists", hapus dulu:
+```bash
+# Windows (PowerShell)
+Remove-Item public\storage
+# Linux / Mac
+rm public/storage
+```
+Lalu jalankan ulang `php artisan storage:link`.
+
+---
+
+## 📂 Struktur Penting
+
+```
+sepatustore/
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── FrontController.php      # Beranda, detail, kategori, search
+│   │   └── OrderController.php      # Booking, payment, cek pesanan
+│   ├── Http/Requests/              # Validasi form
+│   ├── Models/                     # Eloquent models
+│   ├── Repositories/               # Repository pattern
+│   └── Services/                   # Business logic
+├── database/
+│   ├── migrations/
+│   └── seeders/ShoeSeeder.php      # Seeder 8 sepatu
+├── resources/views/
+│   ├── front/                      # Halaman user
+│   ├── order/                      # Halaman order/booking
+│   └── livewire/order-form.blade.php
+└── routes/web.php
+```
+
+---
+
+## 🛣️ Route Utama
+
+| Method | URL                          | Nama Route                  |
+|--------|------------------------------|-----------------------------|
+| GET    | /                            | front.index                 |
+| GET    | /browse/{category:slug}      | front.category              |
+| GET    | /details/{shoe:slug}         | front.details               |
+| GET    | /search?keyword=...          | front.search                |
+| GET    | /check-booking               | front.check_booking         |
+| POST   | /check-booking/details       | front.check_booking_details |
+| GET/POST| /order/begin/{shoe:slug}    | front.save_order            |
+| GET    | /order/booking               | front.booking               |
+| GET    | /order/booking/customer-data | front.customer_data         |
+| POST   | /order/booking/customer-data/save | front.save_customer_data |
+| GET    | /order/payment               | front.payment               |
+| POST   | /order/payment/confirm       | front.payment_comfirm       |
+| GET    | /order/finished/{id}         | front.order_finished        |
+
+---
+

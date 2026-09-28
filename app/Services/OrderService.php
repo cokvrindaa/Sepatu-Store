@@ -126,6 +126,8 @@ class OrderService
           $newTranscation = $this->orderRepository->createTranscation($validated);
           
           $productTranscationId = $newTranscation->id;
+
+          $this->orderRepository->clearSession();
         });
       } catch (\Exception $e){
         Log::error('Eror Pembayaran: '. $e->getMessage() );

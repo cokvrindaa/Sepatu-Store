@@ -11,17 +11,17 @@
         <header class="sticky top-0 z-50 glass-nav border-b border-black/5 shadow-sm">
             <div class="max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between gap-6">
                 <div class="flex items-center gap-4">
-                    <a href="check-booking.html" class="p-2 rounded-full hover:bg-black/5 transition-colors">
+                    <a href="{{ route('front.check_booking') }}" class="p-2 rounded-full hover:bg-black/5 transition-colors">
                         <img src="{{ asset('assets//images/icons/back.svg')}}" class="w-8 h-8" alt="back">
                     </a>
-                    <a href="index.html" class="flex shrink-0 items-center gap-2">
-                        <img src="{{ asset('assets//images/logos/logo.svg')}}" class="h-10 w-auto" alt="ShoesStore Logo">
+<a href="{{ route('front.index') }}" class="flex shrink-0 items-center gap-2">
+                        <img src="{{ asset('assets/images/logos/logo.svg')}}" class="h-10 w-auto" alt="ShoesStore Logo">
                     </a>
                 </div>
 
-                <form action="search.html" class="hidden md:flex flex-1 max-w-md items-center">
+                <form action="#" class="hidden md:flex flex-1 max-w-md items-center">
                     <div class="relative flex items-center w-full rounded-full bg-white/90 border border-gray-200 px-4 py-2 gap-3 transition-all focus-within:ring-2 focus-within:ring-[#FFC700] focus-within:border-transparent">
-                        <img src="{{ asset('assets//images/icons/search-normal.svg')}}" class="w-5 h-5 text-gray-400" alt="search">
+                        <img src="{{ asset('assets/images/icons/search-normal.svg')}}" class="w-5 h-5 text-gray-400" alt="search">
                         <input type="text" name="q" class="w-full appearance-none bg-transparent outline-none font-medium placeholder:font-normal placeholder:text-gray-400 text-sm" placeholder="Search iconic sneakers...">
                         <button type="submit" class="rounded-full px-5 py-2 bg-[#C5F277] hover:bg-[#b3eb59] font-bold text-sm transition-colors">
                             Explore
@@ -30,9 +30,9 @@
                 </form>
 
                 <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
-                    <a href="index.html" class="text-gray-600 hover:text-black transition-colors">Home</a>
-                    <a href="category.html" class="text-gray-600 hover:text-black transition-colors">Categories</a>
-                    <a href="check-booking.html" class="text-black hover:text-[#090917] flex items-center gap-2 border-b-2 border-[#C5F277] pb-1">
+                    <a href="{{ route('front.index') }}" class="text-gray-600 hover:text-black transition-colors">Home</a>
+                    <a href="#category" class="text-gray-600 hover:text-black transition-colors">Categories</a>
+                    <a href="{{ route('front.check_booking') }}" class="text-black hover:text-[#090917] flex items-center gap-2 border-b-2 border-[#C5F277] pb-1">
                         <span>My Orders</span>
                     </a>
                 </nav>
@@ -42,7 +42,7 @@
                         <img src="{{ asset('assets//images/icons/notification.svg')}}" class="w-6 h-6" alt="notifications">
                         <span class="absolute top-1 right-1 w-2.5 h-2.5 bg-[#FF1943] rounded-full"></span>
                     </a>
-                    <a href="check-booking.html" class="hidden md:flex items-center gap-2 bg-[#2A2A2A] text-white px-5 py-2.5 rounded-full hover:bg-black transition-colors text-sm font-semibold">
+                    <a href="{{ route('front.check_booking') }}" class="hidden md:flex items-center gap-2 bg-[#2A2A2A] text-white px-5 py-2.5 rounded-full hover:bg-black transition-colors text-sm font-semibold">
                         <img src="{{ asset('assets//images/icons/bag-2-white.svg')}}" class="w-4 h-4" alt="bag">
                         <span>Check Order</span>
                     </a>

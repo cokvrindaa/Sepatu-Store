@@ -22,12 +22,7 @@
                     <a href="{{ route('front.check_booking') }}" class="text-gray-600 hover:text-black transition-colors">My Orders</a>
                 </nav>
 
-                <div class="flex items-center gap-4">
-                    <a href="{{ route('front.index') }}" class="flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
-                        <img src="{{ asset('assets/images/icons/back.svg') }}" class="w-5 h-5" alt="back">
-                        <span class="hidden md:inline">Back to Shop</span>
-                    </a>
-                </div>
+
             </div>
         </header>
 

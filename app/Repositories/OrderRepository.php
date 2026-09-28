@@ -42,4 +42,8 @@ class OrderRepository implements OrderRepositoryInterface
     $orderData = array_merge($orderData, $data);
     session(['orderData' => $orderData]);
   }
+
+  public function clearSession() {
+    Session::forget('orderData');
+  }
 }

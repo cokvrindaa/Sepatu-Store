@@ -28,4 +28,15 @@ class FrontController extends Controller
     public function category(Category $category){
         return view('front.category', compact('category'));
     }
+
+    public function search(Request $request) {
+        $keyword = $request->input('keyword');
+        
+        $shoes = $this->frontService->searchShoe($keyword);
+        
+        return view('front.search', [
+            'shoes' => $shoes,
+            'keyword' => $keyword
+        ]);
+    }
 }

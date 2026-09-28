@@ -16,10 +16,10 @@
                     <img src="assets/images/logos/logo.svg" class="h-10 w-auto" alt="ShoesStore Logo">
                 </a>
                 
-                <form action="#" class="hidden md:flex flex-1 max-w-xl items-center">
+                <form action="{{ route('front.search') }}" method="GET" class="hidden md:flex flex-1 max-w-xl items-center">
                     <div class="relative flex items-center w-full rounded-full bg-white/90 border border-gray-200 px-4 py-2 gap-3 transition-all focus-within:ring-2 focus-within:ring-[#FFC700] focus-within:border-transparent">
                         <img src="assets/images/icons/search-normal.svg" class="w-5 h-5 text-gray-400" alt="search">
-                        <input type="text" name="q" class="w-full appearance-none bg-transparent outline-none font-medium placeholder:font-normal placeholder:text-gray-400 text-sm" placeholder="Search iconic sneakers, brands, categories...">
+                        <input type="text" name="keyword" class="w-full appearance-none bg-transparent outline-none font-medium placeholder:font-normal placeholder:text-gray-400 text-sm" placeholder="Search iconic sneakers, brands, categories...">
                         <button type="submit" class="rounded-full px-5 py-2 bg-[#C5F277] hover:bg-[#b3eb59] font-bold text-sm transition-colors">
                             Explore
                         </button>
@@ -50,7 +50,7 @@
             
             <!-- Mobile Search Bar -->
             <div class="md:hidden px-4 pb-4 pt-1">
-                <form action="#" class="flex items-center">
+                <form action="{{ route('front.search') }}" method="GET" class="flex items-center">
                     <div class="relative flex items-center w-full rounded-full bg-white px-4 py-2.5 gap-3 border border-gray-200 focus-within:ring-2 focus-within:ring-[#FFC700]">
                         <img src="assets/images/icons/search-normal.svg" class="w-5 h-5" alt="search">
                         <input type="text" name="q" class="w-full appearance-none bg-transparent outline-none font-medium placeholder:text-gray-400 text-sm" placeholder="Search product...">

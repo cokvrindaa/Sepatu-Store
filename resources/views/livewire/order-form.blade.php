@@ -1,4 +1,5 @@
 <div class="w-full max-w-2xl space-y-6">
+
     <img src="{{ Storage::url($shoe->photos()->latest()->first()->photo) }}" class="w-full max-w-[260px] h-[160px] object-contain mx-auto" alt="Nike Air Humara Shoes">
     <form wire:submit.prevent="submit" class="bg-white rounded-3xl shadow border p-6 space-y-4" id="booking-form">
       <h2 class="text-xl font-bold">{{ $shoe->name }}</h2>

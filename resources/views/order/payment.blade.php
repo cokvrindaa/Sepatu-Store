@@ -20,17 +20,18 @@
                 <a href="{{ route('front.index') }}" class="text-gray-600 hover:text-black transition-colors">My Orders</a>
             </nav>
 
-            <div class="flex items-center gap-4">
-                <a href="{{ route('front.customer_data') }}" class="flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
-                    <img src="{{ asset('assets/images/icons/back.svg') }}" class="w-5 h-5" alt="back">
-                    <span class="hidden md:inline">Back</span>
-                </a>
-            </div>
+
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 md:px-8 mt-6 md:mt-8 flex justify-center">
         <form action="{{ route('front.payment_comfirm') }}" method="POST" enctype="multipart/form-data" class="w-full max-w-2xl space-y-6">
+            <div class="flex items-center gap-4">
+        <a href="{{ route('front.index') }}" class="flex items-center gap-2 text-sm font-semibold px-4 py-2 bg-white rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
+            <img src="{{ asset('assets/images/icons/back.svg') }}" class="w-5 h-5" alt="back">
+            <span class="hidden md:inline">Back </span>
+        </a>
+    </div>
             @csrf
             <!-- Your Order - Accordion -->
             <section class="accordion flex flex-col rounded-3xl p-5 gap-5 bg-white shadow border overflow-hidden transition-all duration-300 has-[:checked]:!h-[66px]">
