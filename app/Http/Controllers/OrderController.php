@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCheckBookingRequest;
 use App\Http\Requests\StoreCustomerDataRequest;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\StorePaymentRequest;
@@ -73,7 +74,25 @@ class OrderController extends Controller
     }
     
     public function orderFinished(ProductTranscations $productTransaction){
-        dd($productTransaction);
+        return view('order.order_finished', compact('productTransaction'));
+    }
+
+    // cek booking
+    public function checkBooking() {
+        return view('order.my_order');
+    }
+    
+    public function checkBookingDetails(StoreCheckBookingRequest $request){
+        // validasi data
+        $validated = $request->validated();
+        
+        $orderDetails = $this->orderService->getMyOrderDetails($validated);
+        
+        if($orderDetails) {
+            return view('order.my_order_details', compact('orderDetails'));
+        }
+        
+        return redirect()->route('front.check_booking')->withErrors(['error' => 'transcation not found']);
     }
 
 }

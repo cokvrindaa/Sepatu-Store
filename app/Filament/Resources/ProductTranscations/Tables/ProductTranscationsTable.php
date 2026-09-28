@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ProductTranscations\Tables;
 
+use Dom\Text;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -25,6 +26,9 @@ class ProductTranscationsTable
                 ImageColumn::make('proof')
                     ->disk('public')
                     ->square(),
+                TextColumn::make('booking_trx_id')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('grand_total_amount')
                     ->numeric()
                     ->sortable(),

@@ -19,7 +19,7 @@ class OrderRepository implements OrderRepositoryInterface
   {
     // mencari bookingtrxid dan juga phone numbernya bedasarkan variabel
     return ProductTranscations::where('booking_trx_id', $bookingTrxId)
-      ->where('phone_number', $phoneNumber)
+      ->where('phone', $phoneNumber)
       ->first(); //hanya ada 1 record data ajah
   }
   

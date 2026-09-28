@@ -31,6 +31,7 @@ class ProductTranscations extends Model
         'discount_amount',
         'is_paid',
         'shoe_id',
+        'shoe_size',
         'promo_code_id',
     ];
 
@@ -49,6 +50,12 @@ class ProductTranscations extends Model
     {
         return $this->belongsTo(Shoe::class, 'shoe_id');
     }
+
+    public function shoeSize(): BelongsTo
+    {
+        return $this->belongsTo(ShoeSize::class, 'shoe_size');
+    }
+
 
     public function promoCode(): BelongsTo
     {

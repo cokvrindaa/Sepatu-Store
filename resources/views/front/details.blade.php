@@ -17,9 +17,9 @@
                 </a>
                 
                 <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
-                    <a href="/index.html" class="text-gray-600 hover:text-black transition-colors">Home</a>
-                    <a href="category.html" class="text-gray-600 hover:text-black transition-colors">Categories</a>
-                    <a href="check-booking.html" class="text-gray-600 hover:text-black transition-colors">My Orders</a>
+                    <a href="{{ route('front.index') }}" class="text-gray-600 hover:text-black transition-colors">Home</a>
+                    <a href="#category" class="text-gray-600 hover:text-black transition-colors">Categories</a>
+                    <a href="{{ route('front.check_booking') }}" class="text-gray-600 hover:text-black transition-colors">My Orders</a>
                 </nav>
 
                 <div class="flex items-center gap-4">

@@ -11,6 +11,9 @@ Route::get('/browse/{category:slug}', [FrontController::class, 'category'])->nam
 
 Route::get('/details/{shoe:slug}', [FrontController::class, 'details'])->name('front.details');
 
+Route::get('/check-booking', [OrderController::class, 'checkBooking'])->name('front.check_booking');
+Route::match(['get', 'post'], '/check-booking/details', [OrderController::class, 'checkBookingDetails'])->name('front.check_booking_details');
+
 // GET =  mengambil data , POST = request menyimpan/mengirim data
 Route::match(['get', 'post'], '/order/begin/{shoe:slug}', [OrderController::class, 'saveOrder'])->name('front.save_order');
 

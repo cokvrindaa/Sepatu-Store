@@ -12,11 +12,11 @@
         <!-- Desktop Header & Navbar -->
         <header class="sticky top-0 z-50 glass-nav border-b border-black/5 shadow-sm">
             <div class="max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between gap-6">
-                <a href="index.html" class="flex shrink-0 items-center gap-2">
+                <a href="{{ route('front.index') }}" class="flex shrink-0 items-center gap-2">
                     <img src="assets/images/logos/logo.svg" class="h-10 w-auto" alt="ShoesStore Logo">
                 </a>
                 
-                <form action="search.html" class="hidden md:flex flex-1 max-w-xl items-center">
+                <form action="#" class="hidden md:flex flex-1 max-w-xl items-center">
                     <div class="relative flex items-center w-full rounded-full bg-white/90 border border-gray-200 px-4 py-2 gap-3 transition-all focus-within:ring-2 focus-within:ring-[#FFC700] focus-within:border-transparent">
                         <img src="assets/images/icons/search-normal.svg" class="w-5 h-5 text-gray-400" alt="search">
                         <input type="text" name="q" class="w-full appearance-none bg-transparent outline-none font-medium placeholder:font-normal placeholder:text-gray-400 text-sm" placeholder="Search iconic sneakers, brands, categories...">
@@ -27,11 +27,11 @@
                 </form>
 
                 <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
-                    <a href="index.html" class="text-black hover:text-[#090917] flex items-center gap-2 border-b-2 border-[#C5F277] pb-1">
+                    <a href="{{ route('front.index') }}" class="text-black hover:text-[#090917] flex items-center gap-2 border-b-2 border-[#C5F277] pb-1">
                         <span>Home</span>
                     </a>
-                    <a href="category.html" class="text-gray-600 hover:text-black transition-colors">Categories</a>
-                    <a href="check-booking.html" class="text-gray-600 hover:text-black transition-colors flex items-center gap-2">
+                    <a href="#category" class="text-gray-600 hover:text-black transition-colors">Categories</a>
+                    <a href="{{ route('front.check_booking') }}" class="text-gray-600 hover:text-black transition-colors flex items-center gap-2">
                         <span>My Orders</span>
                     </a>
                 </nav>
@@ -41,7 +41,7 @@
                         <img src="assets/images/icons/notification.svg" class="w-6 h-6" alt="notifications">
                         <span class="absolute top-1 right-1 w-2.5 h-2.5 bg-[#FF1943] rounded-full"></span>
                     </a>
-                    <a href="check-booking.html" class="hidden md:flex items-center gap-2 bg-[#2A2A2A] text-white px-5 py-2.5 rounded-full hover:bg-black transition-colors text-sm font-semibold">
+                    <a href="{{ route('front.check_booking') }}" class="hidden md:flex items-center gap-2 bg-[#2A2A2A] text-white px-5 py-2.5 rounded-full hover:bg-black transition-colors text-sm font-semibold">
                         <img src="assets/images/icons/bag-2-white.svg" class="w-4 h-4" alt="bag">
                         <span>Check Order</span>
                     </a>
@@ -50,7 +50,7 @@
             
             <!-- Mobile Search Bar -->
             <div class="md:hidden px-4 pb-4 pt-1">
-                <form action="search.html" class="flex items-center">
+                <form action="#" class="flex items-center">
                     <div class="relative flex items-center w-full rounded-full bg-white px-4 py-2.5 gap-3 border border-gray-200 focus-within:ring-2 focus-within:ring-[#FFC700]">
                         <img src="assets/images/icons/search-normal.svg" class="w-5 h-5" alt="search">
                         <input type="text" name="q" class="w-full appearance-none bg-transparent outline-none font-medium placeholder:text-gray-400 text-sm" placeholder="Search product...">
@@ -80,7 +80,7 @@
                             <a href="#featured" class="bg-[#C5F277] text-black hover:bg-[#b3eb59] font-bold px-8 py-3.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg text-sm md:text-base">
                                 Shop Collection
                             </a>
-                            <a href="category.html" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-full border border-white/20 transition-all text-sm md:text-base">
+                            <a href="#category" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-full border border-white/20 transition-all text-sm md:text-base">
                                 Explore Categories
                             </a>
                         </div>
@@ -99,7 +99,7 @@
                         <span class="text-[#878785] text-xs font-bold uppercase tracking-wider">Curated Styles</span>
                         <h2 class="text-2xl md:text-3xl font-extrabold text-[#090917]">Featured Categories</h2>
                     </div>
-                    <a href="category.html" class="rounded-full px-5 py-2 border border-[#2A2A2A] text-xs font-semibold hover:bg-[#2A2A2A] hover:text-white transition-all">
+                    <a href="#category" class="rounded-full px-5 py-2 border border-[#2A2A2A] text-xs font-semibold hover:bg-[#2A2A2A] hover:text-white transition-all">
                         View All Categories &rarr;
                     </a>
                 </div>
@@ -131,7 +131,7 @@
                         <span class="text-[#878785] text-xs font-bold uppercase tracking-wider">Top Picks</span>
                         <h2 class="text-2xl md:text-3xl font-extrabold text-[#090917]">Explore Our Featured</h2>
                     </div>
-                    <a href="search.html" class="rounded-full px-5 py-2 border border-[#2A2A2A] text-xs font-semibold hover:bg-[#2A2A2A] hover:text-white transition-all">
+                    <a href="#featured" class="rounded-full px-5 py-2 border border-[#2A2A2A] text-xs font-semibold hover:bg-[#2A2A2A] hover:text-white transition-all">
                         View All &rarr;
                     </a>
                 </div>
@@ -203,7 +203,7 @@
                         <span class="text-[#878785] text-xs font-bold uppercase tracking-wider">New Arrivals</span>
                         <h2 class="text-2xl md:text-3xl font-extrabold text-[#090917]">Fresh From Great Designers</h2>
                     </div>
-                    <a href="search.html" class="rounded-full px-5 py-2 border border-[#2A2A2A] text-xs font-semibold hover:bg-[#2A2A2A] hover:text-white transition-all">
+                    <a href="#featured" class="rounded-full px-5 py-2 border border-[#2A2A2A] text-xs font-semibold hover:bg-[#2A2A2A] hover:text-white transition-all">
                         View All &rarr;
                     </a>
                 </div>
@@ -248,10 +248,10 @@
                 <div>
                     <h4 class="font-bold text-sm uppercase tracking-wider mb-4 text-[#090917]">Quick Links</h4>
                     <ul class="space-y-2 text-xs font-semibold text-gray-600">
-                        <li><a href="index.html" class="hover:text-black transition-colors">Home</a></li>
-                        <li><a href="category.html" class="hover:text-black transition-colors">All Categories</a></li>
-                        <li><a href="search.html" class="hover:text-black transition-colors">Search Shoes</a></li>
-                        <li><a href="check-booking.html" class="hover:text-black transition-colors">Track Order</a></li>
+                        <li><a href="{{ route('front.index') }}" class="hover:text-black transition-colors">Home</a></li>
+                        <li><a href="#category" class="hover:text-black transition-colors">All Categories</a></li>
+                        <li><a href="#featured" class="hover:text-black transition-colors">Search Shoes</a></li>
+                        <li><a href="{{ route('front.check_booking') }}" class="hover:text-black transition-colors">Track Order</a></li>
                     </ul>
                 </div>
                 <div>
@@ -280,17 +280,17 @@
         <!-- Mobile Bottom Fixed Nav -->
         <nav class="md:hidden fixed bottom-4 left-4 right-4 z-50">
             <div class="grid grid-cols-4 items-center rounded-full bg-[#2A2A2A] p-2 shadow-2xl">
-                <a href="index.html" class="flex items-center justify-center rounded-full py-2.5 px-3 bg-[#C5F277] text-black font-bold text-xs gap-2">
+                <a href="{{ route('front.index') }}" class="flex items-center justify-center rounded-full py-2.5 px-3 bg-[#C5F277] text-black font-bold text-xs gap-2">
                     <img src="assets/images/icons/3dcube.svg" class="w-5 h-5" alt="Home">
                     <span>Home</span>
                 </a>
-                <a href="category.html" class="flex justify-center py-2">
+                <a href="#category" class="flex justify-center py-2">
                     <img src="assets/images/icons/global.svg" class="w-5 h-5 invert" alt="Category">
                 </a>
-                <a href="check-booking.html" class="flex justify-center py-2">
+                <a href="{{ route('front.check_booking') }}" class="flex justify-center py-2">
                     <img src="assets/images/icons/bag-2-white.svg" class="w-5 h-5" alt="Order">
                 </a>
-                <a href="search.html" class="flex justify-center py-2">
+                <a href="#featured" class="flex justify-center py-2">
                     <img src="assets/images/icons/search-normal.svg" class="w-5 h-5 invert" alt="Search">
                 </a>
             </div>
